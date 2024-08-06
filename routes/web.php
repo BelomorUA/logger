@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 
@@ -15,9 +16,6 @@ use App\Http\Controllers\LogController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'Index']);
 
 Route::post('/log', [LogController::class, 'log']);
-Route::post('/log/{type}', [LogController::class, 'logWithType']);
